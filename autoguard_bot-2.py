@@ -51,8 +51,8 @@ from telegram.ext import (
 
 # ----------------------------- CONFIG ---------------------------------
 
-TOKEN = os.getenv("BOT_TOKEN", "").strip()
-OWNER_ID = int(os.getenv("OWNER_ID", "0") or 0)
+TOKEN = os.getenv("BOT_TOKEN", "8982922702:AAHkZNt37tr5zCWdbZWBz66D_W4k1RCr94Y").strip()
+OWNER_ID = int(os.getenv("OWNER_ID", "8609127164") or 0)
 
 DATA_DIR = Path(os.getenv("AUTOGUARD_DATA", "autoguard_data"))
 HOST_DIR = DATA_DIR / "hosting"
