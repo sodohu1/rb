@@ -8,10 +8,8 @@ Hosting Panel + Auto Modules, Backup, Broadcast... sab kuch)
 
 SETUP:
   pip install -r requirements.txt
+  cp .env.example .env      → BOT_TOKEN aur OWNER_ID bharo
   python bot.py
-
-⚠️ TOKEN BADALNA HO TOH: niche CONFIG section me jao
-   aur BOT_TOKEN ki line update kar do. Bas!
 """
 
 # ═══════════════════════════════════════════════════════
@@ -37,6 +35,7 @@ from functools import wraps
 
 import aiosqlite
 import psutil
+from dotenv import load_dotenv
 from telegram import (BotCommand, InlineKeyboardButton,
                       InlineKeyboardMarkup, Update)
 from telegram.constants import ChatType
@@ -46,14 +45,10 @@ from telegram.ext import (Application, ApplicationHandlerStop,
                           filters)
 
 # ═══════════════════════════════════════════════════════
-# ⚙️ CONFIG — HARDCODED (matlab .env ki zaroorat nahi)
+# CONFIG
 # ═══════════════════════════════════════════════════════
-# ⚠️⚠️⚠️  YE TOKEN SECRET HAI — kisi ko share/submit mat karna!
-#          Leak ho jaye toh @BotFather → /mybots → Revoke Token
-# ═══════════════════════════════════════════════════════
-BOT_TOKEN = "7861849557:AAGo5TU1hDuoRvOvqXz6bZAS-_t6VFFCI9o"   # 👈 TOKEN YAHAN CHANGE KARO (naya wala)
-OWNER_ID = 8609127164                                          # 👈 Tumhari Owner ID
-
+BOT_TOKEN = "7861849557:AAGo5TU1hDuoRvOvqXz6bZAS-_t6VFFCI9o"             # ← apna token yahan
+OWNER_ID = 8609127164                          # ← apna Telegram ID yahan
 DB_PATH = os.environ.get("DB_PATH", "autoguard.db")
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
 SANDBOX_DIR = os.environ.get("SANDBOX_DIR", "./sandbox")
@@ -417,9 +412,9 @@ def kb(rows):
 def nav(back=None):
     row = []
     if back:
-        row.append(InlineKeyboardButton("⬅️ Back", callback_data=back))
-    row.append(InlineKeyboardButton("🏠 Home", callback_data="home"))
-    row.append(InlineKeyboardButton("🔄 Refresh", callback_data="refresh"))
+        row.append(("⬅️ Back", back))
+    row.append(("🏠 Home", "home"))
+    row.append(("🔄 Refresh", "refresh"))
     return row
 
 
@@ -1643,6 +1638,8 @@ async def _watch(name, context):
 
 async def stop_proc(name):
     info = PROCS.get(name)
+    if not info or info["proc"].returncode is None:
+        pass
     if not info or info["proc"].returncode is not None:
         return False, "Not running."
     info["proc"].terminate()
