@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 #  2. /newbot likho
 #  3. Jo token milega wo yahan paste karo
 # ══════════════════════════════════════════════
-BOT_TOKEN = "8253791330:AAEkcLgs5L-ouSWRjl-2KCmbIAfFcjv0KUg"
+BOT_TOKEN = "8253791330:AAGFs7Cf_a3AaGiWQcQHhX0dquzMid2r6V8"
 # ══════════════════════════════════════════════
 
 bot = telebot.TeleBot(BOT_TOKEN)
