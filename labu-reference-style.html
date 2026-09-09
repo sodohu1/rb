@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Labu 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Quicksand:wght@400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Quicksand',sans-serif;
+  background:#f5e6f0;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* subtle dot texture */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:radial-gradient(circle,rgba(180,100,150,.12) 1px,transparent 1px);
+  background-size:22px 22px;
+  pointer-events:none;z-index:0;
+}
+
+/* ── SCATTERED EMOJIS ── */
+.scatter{
+  position:fixed;
+  font-size:26px;
+  pointer-events:none;z-index:1;
+  animation:sway ease-in-out infinite alternate;
+}
+@keyframes sway{
+  0%{transform:translateY(0) rotate(-6deg) scale(1);}
+  100%{transform:translateY(-12px) rotate(6deg) scale(1.06);}
+}
+
+/* ── PAGE WRAPPER ── */
+.page{position:relative;z-index:2;padding:48px 20px 80px;max-width:480px;margin:0 auto;}
+
+/* ── SECTION SPACING ── */
+.section{margin-bottom:44px;}
+
+/* ── PILL BADGE ── */
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.8);
+  border:1px solid rgba(180,120,160,.25);
+  border-radius:50px;
+  padding:7px 18px;
+  font-size:.72rem;font-weight:700;
+  color:#7b4f6a;letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+/* ── WHITE CARD ── */
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:28px 24px;
+  box-shadow:0 4px 30px rgba(180,80,140,.1);
+}
+
+/* ── HERO SECTION ── */
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;line-height:1.25;
+  color:#3d1f35;
+  text-align:center;
+  margin-bottom:8px;
+}
+.hero-sub{
+  font-family:'Dancing Script',cursive;
+  font-size:1.1rem;color:#a0647e;
+  text-align:center;margin-bottom:18px;
+}
+.hero-body{
+  font-size:.9rem;line-height:1.75;
+  color:#5c3d4e;text-align:center;
+  margin-bottom:22px;
+}
+.hero-body span{color:#c2185b;font-weight:700;}
+
+/* music player */
+.player{
+  background:#f9eaf3;
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;
+}
+.player-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,#f8c8d8,#e8a0c0);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.player-info{flex:1;}
+.player-info small{font-size:.7rem;color:#a0647e;font-weight:600;text-transform:uppercase;letter-spacing:.8px;}
+.player-info p{font-size:.82rem;font-weight:700;color:#3d1f35;margin-top:1px;}
+.player-btn{
+  width:40px;height:40px;border-radius:50%;
+  background:#a068c0;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.9rem;flex-shrink:0;
+  transition:transform .2s;
+}
+.player-btn:hover{transform:scale(1.1);}
+
+/* emoji row */
+.emoji-row{
+  display:flex;justify-content:center;gap:12px;
+  margin-bottom:22px;
+}
+.emoji-pill{
+  background:#f5eef8;border-radius:14px;
+  width:70px;height:62px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 2px 8px rgba(160,80,140,.08);
+}
+
+/* CTA button */
+.cta{
+  display:block;width:100%;
+  background:linear-gradient(135deg,#a068c0,#8a4fb0);
+  color:#fff;border:none;cursor:pointer;
+  border-radius:50px;padding:15px;
+  font-family:'Quicksand',sans-serif;
+  font-size:.78rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  text-align:center;text-decoration:none;
+  box-shadow:0 6px 20px rgba(140,80,180,.3);
+  transition:all .28s ease;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(140,80,180,.45);}
+
+/* ── CAROUSEL SECTION ── */
+.sec-label{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.75);
+  border-radius:50px;padding:5px 14px;
+  font-size:.68rem;font-weight:700;color:#7b4f6a;
+  letter-spacing:1.2px;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.sec-heading{
+  font-family:'Dancing Script',cursive;
+  font-size:1.7rem;color:#3d1f35;
+  margin-bottom:4px;
+}
+.sec-hint{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:.88rem;
+  color:#a0647e;margin-bottom:16px;
+}
+
+.carousel-card{
+  background:#fff;border-radius:22px;
+  padding:20px;
+  box-shadow:0 4px 24px rgba(180,80,140,.1);
+}
+.carousel-frame{
+  background:#fdf0f6;
+  border:1.5px dashed rgba(180,120,160,.35);
+  border-radius:16px;
+  min-height:200px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:28px 20px;
+  position:relative;overflow:hidden;
+  margin-bottom:16px;
+}
+.carousel-slide{
+  display:none;flex-direction:column;
+  align-items:center;gap:16px;
+  text-align:center;width:100%;
+}
+.carousel-slide.active{display:flex;}
+.slide-emoji{font-size:3.2rem;}
+.slide-text{
+  font-family:'Dancing Script',cursive;
+  font-size:1.25rem;color:#5c3d4e;
+  line-height:1.5;
+}
+
+.carousel-nav{
+  display:flex;align-items:center;
+  justify-content:space-between;
+}
+.c-arrow{
+  background:none;border:none;cursor:pointer;
+  color:#b07090;font-size:1.1rem;padding:6px;
+  transition:color .2s;
+}
+.c-arrow:hover{color:#c2185b;}
+
+.c-dots{display:flex;gap:7px;align-items:center;}
+.c-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#e8c8d8;border:none;cursor:pointer;
+  transition:all .3s;
+}
+.c-dot.on{background:#a068c0;transform:scale(1.3);}
+.c-count{font-size:.75rem;color:#a0647e;font-weight:600;margin-left:6px;}
+
+/* ── BOUQUET SECTION ── */
+.bouquet-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.bloom{
+  background:#fdf0f6;
+  border-radius:16px;
+  padding:20px 12px;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(180,80,140,.07);
+  transition:transform .25s;
+}
+.bloom:hover{transform:translateY(-3px);}
+.bloom-emoji{font-size:2rem;display:block;margin-bottom:10px;}
+.bloom-text{font-size:.8rem;color:#7b4f6a;line-height:1.5;font-weight:500;}
+
+/* responsive scroll */
+@media(max-width:480px){
+  .hero-title{font-size:1.7rem;}
+  .sec-heading{font-size:1.45rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- scattered bg emojis -->
+<script>
+const sc=[
+  {e:'🌸',t:'8%',l:'4%',d:5},{e:'🌼',t:'5%',l:'88%',d:7},
+  {e:'💕',t:'18%',l:'92%',d:6},{e:'⭐',t:'32%',l:'2%',d:8},
+  {e:'💫',t:'55%',l:'94%',d:5},{e:'🌷',t:'68%',l:'6%',d:9},
+  {e:'❤️',t:'78%',l:'90%',d:6},{e:'✨',t:'88%',l:'3%',d:7},
+  {e:'🌺',t:'92%',l:'88%',d:5},{e:'💜',t:'44%',l:'96%',d:8},
+  {e:'🦋',t:'14%',l:'50%',d:6},{e:'🌟',t:'72%',l:'48%',d:7},
+];
+sc.forEach(({e,t,l,d})=>{
+  const el=document.createElement('div');
+  el.className='scatter';el.textContent=e;
+  el.style.top=t;el.style.left=l;
+  el.style.animationDuration=d+'s';
+  el.style.animationDelay=(Math.random()*4)+'s';
+  el.style.opacity=.55;
+  document.body.appendChild(el);
+});
+</script>
+
+<div class="page">
+
+  <!-- ── HERO ── -->
+  <div class="section" style="text-align:center;">
+    <div class="pill">♥ For My Love, Labu</div>
+    <div class="card">
+      <h1 class="hero-title">Meri Jaan,<br>Labu 🌸</h1>
+      <p class="hero-sub">for you, my love ♡</p>
+      <p class="hero-body">
+        Aaj ka din sirf tumhara hai, <span>Labu</span>. Maine yeh chota sa corner banaya hai — sirf yeh kehne ke liye jo main roz kehna chahta hun par kehta nahi. Tum, <span>Labu</span>, mere ordinary din ko kuch alag bana deti ho. Ruko yahan kuch der. Yeh sab tumhare liye hai.
+      </p>
+
+      <div class="player">
+        <div class="player-avatar">🌷</div>
+        <div class="player-info">
+          <small>Hamara Gaana</small>
+          <p>Sirf Humara — Hamesha</p>
+        </div>
+        <button class="player-btn">▶</button>
+      </div>
+
+      <div class="emoji-row">
+        <div class="emoji-pill">🐱</div>
+        <div class="emoji-pill">🐰</div>
+        <div class="emoji-pill">💐</div>
+      </div>
+
+      <a href="#album" class="cta">Humara Album Dekho →</a>
+    </div>
+  </div>
+
+  <!-- ── CAROUSEL / ALBUM ── -->
+  <div class="section" id="album">
+    <div class="sec-label">♥ Moments with Labu</div>
+    <h2 class="sec-heading">us, in a few frames</h2>
+    <p class="sec-hint">Kuch lamhe jo main hamesha jeena chahta hun. ♡</p>
+
+    <div class="carousel-card">
+      <div class="carousel-frame">
+
+        <div class="carousel-slide active" id="cs0">
+          <span class="slide-emoji">🌷</span>
+          <p class="slide-text">Woh din jab mujhe pehli baar samjha ki tum meri favourite baat ho.</p>
+        </div>
+
+        <div class="carousel-slide" id="cs1">
+          <span class="slide-emoji">🌙</span>
+          <p class="slide-text">Raat ke 2 baje ki woh baatein jo kabhi khatam hi nahi hoti thi.</p>
+        </div>
+
+        <div class="carousel-slide" id="cs2">
+          <span class="slide-emoji">💜</span>
+          <p class="slide-text">Har woh lamha jab tumne bina kuch kahe samjh liya.</p>
+        </div>
+
+        <div class="carousel-slide" id="cs3">
+          <span class="slide-emoji">🌟</span>
+          <p class="slide-text">Tumhare saath hone wala har ek din — mera favourite din.</p>
+        </div>
+
+      </div>
+
+      <div class="carousel-nav">
+        <button class="c-arrow" onclick="cPrev()">‹</button>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="c-dots" id="cDots">
+            <button class="c-dot on" onclick="cGo(0)"></button>
+            <button class="c-dot" onclick="cGo(1)"></button>
+            <button class="c-dot" onclick="cGo(2)"></button>
+            <button class="c-dot" onclick="cGo(3)"></button>
+          </div>
+          <span class="c-count" id="cCount">01 / 04</span>
+        </div>
+        <button class="c-arrow" onclick="cNext()">›</button>
+      </div>
+
+      <div style="margin-top:18px;">
+        <a href="#bouquet" class="cta">Main Tumse Kyun Pyaar Karta Hun →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BOUQUET ── -->
+  <div class="section" id="bouquet" style="text-align:center;">
+    <div class="sec-label">♥ A Little Bouquet for Labu</div>
+    <h2 class="sec-heading">Labu, ek phool<br>har wajah ke liye</h2>
+    <p class="sec-hint" style="margin-bottom:18px;">sirf tumhare liye chuni hain ♡</p>
+
+    <div class="bouquet-grid">
+      <div class="bloom">
+        <span class="bloom-emoji">🌹</span>
+        <p class="bloom-text">Tum ghar jaisi feel karati ho, Labu.</p>
+      </div>
+      <div class="bloom">
+        <span class="bloom-emoji">🌸</span>
+        <p class="bloom-text">Tumhari hansi meri favourite cheez hai.</p>
+      </div>
+      <div class="bloom">
+        <span class="bloom-emoji">🌷</span>
+        <p class="bloom-text">Tum mere ordinary din ko magical bana deti ho.</p>
+      </div>
+      <div class="bloom">
+        <span class="bloom-emoji">💜</span>
+        <p class="bloom-text">Tum meri shanti bhi ho aur meri energy bhi.</p>
+      </div>
+      <div class="bloom">
+        <span class="bloom-emoji">🌻</span>
+        <p class="bloom-text">Tumhare liye better banna chahta hun, hamesha.</p>
+      </div>
+      <div class="bloom">
+        <span class="bloom-emoji">🌼</span>
+        <p class="bloom-text">Tum ho — aur bas itna kaafi hai.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- page -->
+
+<script>
+/* ── CAROUSEL ── */
+let ci=0,cTotal=4;
+function cShow(n){
+  document.getElementById('cs'+ci).classList.remove('active');
+  document.querySelectorAll('.c-dot')[ci].classList.remove('on');
+  ci=((n%cTotal)+cTotal)%cTotal;
+  document.getElementById('cs'+ci).classList.add('active');
+  document.querySelectorAll('.c-dot')[ci].classList.add('on');
+  document.getElementById('cCount').textContent=String(ci+1).padStart(2,'0')+' / '+String(cTotal).padStart(2,'0');
+}
+function cNext(){cShow(ci+1);}
+function cPrev(){cShow(ci-1);}
+function cGo(n){cShow(n);}
+
+/* auto */
+setInterval(cNext,4500);
+
+/* touch swipe on carousel */
+let tx=0;
+document.querySelector('.carousel-frame').addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+document.querySelector('.carousel-frame').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>40)dx<0?cNext():cPrev();
+});
+</script>
+</body>
+</html>
