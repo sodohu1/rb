@@ -57,7 +57,7 @@ from playwright.async_api import async_playwright
 # ═══════════════════════════════════════════════════════════════
 #  CONFIG — EDIT THESE BEFORE RUNNING
 # ═══════════════════════════════════════════════════════════════
-BOT_TOKEN        = "8742801995:AAG3qqDuh7NR7IIYdvjMSiL1Y3EZKw4xMhQ"   # @BotFather token
+BOT_TOKEN        = "8742801995:AAFKK14AcbJoNT-w3TGosI1EzWLposjAyPE"   # @BotFather token
 ADMIN_IDS        = [8609127164]        # your Telegram user ID(s)
 REQUIRE_APPROVAL = False              # True = admin must approve each user
 
